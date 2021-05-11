@@ -42,24 +42,133 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
+A few quick notes:
+* Learn with Leon is the best.
+* Examples of each array method will be added to this repository in the future.  Maybe I'll give each folder a README and break up this long one.
+* Resources posted at the bottom in the acknowledgments.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+Examples of each array method will be added to the repository throughout the week.
 
 Resources posted at the bottom in the acknowledgments.
 
 ## Map
+Map calls a provided function once for each element in the array, then creates a new array with the updated values.
 
+### Syntax:<br>
+#### Arrow Function:<br>
+map((element, index, array) => { ... } )
+<br>
+#### Callback Function:<br>
+map(callbackFn, thisArg)
+<br>
+#### Inline Callback Function:<br>
+map(function callbackFn(element, index, array) { ... }, thisArg)
+<br>
+<br>
+### First example:<br>
+<br>
+let numbers = [1, 4, 9] <br>
+let roots = numbers.map(function(num) { <br>
+    return Math.sqrt(num) <br>
+})
+// roots is now     [1, 2, 3] <br>
+// numbers is still [1, 4, 9] <br>
+
+### Second example:<br>
+<br>
+Given an array of integers, return a new array with each value doubled.<br>
+<br>
+For example:<br>
+<br>
+[1, 2, 3] --> [2, 4, 6]<br>
+<br> 
+function maps(x){ <br>
+  return x.map(n => n * 2); <br>
+}
+
+
+### Third example:<br>
+(from MDN)<br>
+let numbers = [1, 4, 9] <br>
+let roots = numbers.map(function(num) { <br>
+    return Math.sqrt(num) <br>
+})
+// roots is now     [1, 2, 3] <br>
+// numbers is still [1, 4, 9] <br>
 
 
 ## Reduce
+Reduce lorem epsom
+
+### Syntax:<br>
+#### Arrow Function:<br>
+map((element, index, array) => { ... } )
+<br>
+#### Callback Function:<br>
+map(callbackFn, thisArg)
+<br>
+#### Inline Callback Function:<br>
+map(function callbackFn(element, index, array) { ... }, thisArg)
+<br>
+<br>
+### First example:<br>
+Given a non-empty array of integers, return the result of multiplying the values together in order. <br>
+Example:<br>
+[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24<br>
+<br>
+const grow = (nums) => nums.reduce((product, num) => product * num, 1);
+} <br>
+
+### Second example:<br>
+
+
+
+### Third example:<br>
+
 
 ## Filter
+Filter blank
+
+### Syntax:<br>
+#### Arrow Function:<br>
+map((element, index, array) => { ... } )
+<br>
+#### Callback Function:<br>
+map(callbackFn, thisArg)
+<br>
+#### Inline Callback Function:<br>
+map(function callbackFn(element, index, array) { ... }, thisArg)
+<br>
+<br>
+### First example:<br>
+Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.<br>
+Example: divisibleBy([1, 2, 3, 4, 5, 6], 2) == [2, 4, 6] <br>
+<br>
+function divisibleBy(numbers, divisor) { <br>
+  return numbers.filter(n => n % divisor === 0) <br>
+} <br>
+
+### Second example:<br>
+Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.<br>
+<br>
+Example: <br>
+<br>
+["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]<br>
+<br>
+function removeEveryOther(arr){ <br>
+  return arr.filter(function(elem, index) { <br>
+    return index % 2 === 0; <br>
+  }); <br>
+} <br>
+or alternatively: <br>
+const removeEveryOther = arr => arr.filter((item, i) =>  i % 2 == 0); <br>
+
+### Third example:<br>
+
+
+
+
 
 ## forEach
    forEach iterates through each element in the array.  This means it executes the function once on each item in the array, beginning to end. <br>
@@ -109,45 +218,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
