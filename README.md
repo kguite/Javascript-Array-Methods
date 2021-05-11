@@ -124,11 +124,28 @@ const grow = (nums) => nums.reduce((product, num) => product * num, 1);
 } <br>
 
 ### Second example:<br>
+Given an array of Boolean values and a logical operator, return a Boolean result based on sequentially applying the operator to the values in the array. <br>
+
+As Example:<br>
+booleans = [True, True, False], operator = "AND" <br>
+True AND True -> True <br>
+True AND False -> False <br>
+return False <br>
+<br>
 
 
+var ops = { <br>
+  'AND': (a, b) => a && b,<br>
+  'OR': (a, b) =>  a || b,<br>
+  'XOR': (a, b) => a !== b<br>
+}<br>
+<br>
+function logicalCalc(array, op){<br>
+  return array.reduce(ops[op]);<br>
+}<br>
 
 ### Third example:<br>
-
+reduce
 
 ## Filter
 Filter returns a new array, only including elements that pass the test in the first array.  
@@ -176,7 +193,26 @@ const result = words.filter(word => word.length > 6);<br>
 console.log(result);<br>
 // expected output: Array ["exuberant", "destruction", "present"]<br>
 
+#### Bonus Fourth Example! This one's pretty neat:
 
+Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts the number of sheep present in the array (true means present). <br>
+<br>
+For example,  <br>
+ <br>
+[true,  true,  true,  false, <br>
+  true,  true,  true,  true ,<br>
+  true,  false, true,  false,<br>
+  true,  false, false, true ,<br>
+  true,  true,  true,  true ,<br>
+  false, false, true,  true]<br>
+  <br>
+The correct answer would be 17.<br>
+<br>
+Hint: Don't forget to check for bad values like null/undefined. <br>
+<br>
+function countSheeps(arrayOfSheeps) { <br>
+  return arrayOfSheeps.filter(Boolean).length; <br>
+} <br>
 
 
 
@@ -199,10 +235,78 @@ console.log(result);<br>
 ## Sort
 
 ## Slice
+slice   
+
+### Syntax:<br>
+#### Arrow Function:<br>
+slice
+<br>
+#### Callback Function:<br>
+slice
+<br>
+#### Inline Callback Function:<br>
+slice
+### First example:<br>
+Write a function to get the first elements of asequence. Passing a parameter n (default=1) will return the first n elements of the sequence. <br>
+<br>
+If n == 0 return an empty sequence []<br>
+<br>
+As Example: <br>
+var arr = ['a', 'b', 'c', 'd', 'e']; <br>
+first(arr) //=> ['a']; <br>
+first(arr, 2) //=> ['a', 'b'] <br>
+first(arr, 3) //=> ['a', 'b', 'c']; <br>
+first(arr, 0) //=> []; <br>
+<br>
+function first(arr, n=1) { <br>
+   return arr.slice(0,n); <br>
+} <br>
+
+### Second example:<br>
+slice
+
+### Third example:<br>
+slice
+
+
 
 ## Pop
 
 ## Push
+Push   
+
+### Syntax:<br>
+#### Arrow Function:<br>
+push
+<br>
+#### Callback Function:<br>
+push
+<br>
+#### Inline Callback Function:<br>
+push
+### First example:<br>
+Create a function with two arguments that will return an array of the first (n) multiples of (x). <br>
+Return the results as an array.<br>
+<br>
+As Example: <br>
+countBy(1,10) === [1,2,3,4,5,6,7,8,9,10] <br>
+countBy(2,5) === [2,4,6,8,10] <br>
+<br>
+function countBy(x, n) { <br>
+    var z = []; <br>
+    for (i = 1; i <= n; i++) { <br>
+        z.push(x * i); <br>
+    } <br>
+    return z; <br>
+}<br>
+
+### Second example:<br>
+push
+
+### Third example:<br>
+push
+
+
 
 ## Shift
 
