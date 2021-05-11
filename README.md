@@ -58,17 +58,7 @@ Resources posted at the bottom in the acknowledgments.
 ## Map
 Map calls a provided function once for each element in the array, then creates a new array with the updated values.
 
-### Syntax:<br>
-#### Arrow Function:<br>
-map((element, index, array) => { ... } )
-<br>
-#### Callback Function:<br>
-map(callbackFn, thisArg)
-<br>
-#### Inline Callback Function:<br>
-map(function callbackFn(element, index, array) { ... }, thisArg)
-<br>
-<br>
+
 ### First example:<br>
 <br>
 let numbers = [1, 4, 9] <br>
@@ -104,17 +94,7 @@ let roots = numbers.map(function(num) { <br>
 ## Reduce
 Reduce lorem epsom
 
-### Syntax:<br>
-#### Arrow Function:<br>
-map((element, index, array) => { ... } )
-<br>
-#### Callback Function:<br>
-map(callbackFn, thisArg)
-<br>
-#### Inline Callback Function:<br>
-map(function callbackFn(element, index, array) { ... }, thisArg)
-<br>
-<br>
+
 ### First example:<br>
 Given a non-empty array of integers, return the result of multiplying the values together in order. <br>
 Example:<br>
@@ -150,17 +130,7 @@ reduce
 ## Filter
 Filter returns a new array, only including elements that pass the test in the first array.  
 
-### Syntax:<br>
-#### Arrow Function:<br>
-map((element, index, array) => { ... } )
-<br>
-#### Callback Function:<br>
-map(callbackFn, thisArg)
-<br>
-#### Inline Callback Function:<br>
-map(function callbackFn(element, index, array) { ... }, thisArg)
-<br>
-<br>
+
 ### First example:<br>
 Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.<br>
 Example: divisibleBy([1, 2, 3, 4, 5, 6], 2) == [2, 4, 6] <br>
