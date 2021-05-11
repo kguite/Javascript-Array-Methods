@@ -3,10 +3,13 @@
 <h3 align="center">Javascript Array Methods</h3>
 
 <p align="center">
-    Welcome to my notes!
+    Welcome to my review notes!
     <br />
 </p>
 
+<p>This repository is designed to be used for active recall and review exercises.  Included are thirteen of the most frequently used Javascript array methods.  Please feel free to take and use freely!</p>
+
+<p>Resources cited at bottom.</p>
 
 
 <!-- TABLE OF CONTENTS -->
@@ -128,7 +131,7 @@ const grow = (nums) => nums.reduce((product, num) => product * num, 1);
 
 
 ## Filter
-Filter blank
+Filter returns a new array, only including elements that pass the test in the first array.  
 
 ### Syntax:<br>
 #### Arrow Function:<br>
@@ -165,6 +168,13 @@ or alternatively: <br>
 const removeEveryOther = arr => arr.filter((item, i) =>  i % 2 == 0); <br>
 
 ### Third example:<br>
+<br>
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];<br>
+<br>
+const result = words.filter(word => word.length > 6);<br>
+<br>
+console.log(result);<br>
+// expected output: Array ["exuberant", "destruction", "present"]<br>
 
 
 
