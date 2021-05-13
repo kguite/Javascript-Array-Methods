@@ -92,7 +92,7 @@ let roots = numbers.map(function(num) { <br>
 
 
 ## Reduce
-Reduce lorem epsom
+the reduce() method executes a reducer function (that we make) on each element of the array, resulting in a single output value. 
 
 
 ### First example:<br>
