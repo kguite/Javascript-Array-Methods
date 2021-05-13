@@ -125,10 +125,15 @@ function logicalCalc(array, op){<br>
 }<br>
 
 ### Third example:<br>
-reduce
+(assuming there's a list of items and their prices, like gum = 2, soda = 3, candy = 5) <br>
+const total = items.reduce((item, currentTotal) => { <br>
+     return item.price + currentTotal <br>
+     }, 0) <br>
+     
+The 0 is telling the function where to start - at zero.  Then it iterates through the array and starts with the first (eg: gum, 2), and displays the current total plus the price of the item.  So for the very first row, it starts at 0 plus 2 = current total of 2.  Then it stays at 2 and adds 3, to make the current total 5.  Then current total 5, plus candy is 5, total is 10.
 
 ## Filter
-Filter returns a new array, only including elements that pass the test in the first array.  
+Filter returns a new array, only including elements that pass the test in the first array. Such as < 100, divisible by 2, string length longer than 5, etc.
 
 
 ### First example:<br>
@@ -245,15 +250,7 @@ slice
 ## Push
 Push   
 
-### Syntax:<br>
-#### Arrow Function:<br>
-push
-<br>
-#### Callback Function:<br>
-push
-<br>
-#### Inline Callback Function:<br>
-push
+
 ### First example:<br>
 Create a function with two arguments that will return an array of the first (n) multiples of (x). <br>
 Return the results as an array.<br>
@@ -287,6 +284,20 @@ push
 ## indexOf
 
 ## Every
+The every method is similar to the some method, but instead of checking for at least one item, it checks to make sure every single item falls under the test.
+### First example:<br>
+(assuming there's a price list with a variety of items and their prices, $1-$100) <br>
+const cheapPrice = items.every((item) => { <br>
+    return item.price <= 75 <br>
+   })  <br>
+ // will return false, because some items are more than $75. if we changed this to 750, it would return true. <br>
+### Second example:<br>
+
+
+
+### Third example:<br>
+every
+
 
 
 
