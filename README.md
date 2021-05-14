@@ -192,35 +192,109 @@ function countSheeps(arrayOfSheeps) { <br>
 
 
 ## forEach
-   forEach iterates through each element in the array.  This means it executes the function once on each item in the array, beginning to end. <br>
+   forEach iterates through each element in the array.  This means it executes the function (that we provide) once on each item in the array, beginning to end. <br>
+   forEach expects a synchronous function.<br>
+<br>
+forEach does not wait for promises. Make sure you are aware of the implications while using promises (or async functions) as forEach callback.<br>
+<br>
+
    It can accept up to three arguments.<br>
    <br>
-   There are three main syntax types:<br>
-   Arrow Function:
-   forEach((element, index, array) => { ... } )
 
-   Callback Function:
-   forEach(callbackFunction, arg)
+### First example, Converting a for loop to a forEach:
+const items = ['item1', 'item2', 'item3'] <br>
+const copyItems = []<br>
+<br>
+// before<br>
+for (let i = 0; i < items.length; i++) {<br>
+  copyItems.push(items[i])<br>
+}<br>
+<br>
+// after<br>
+items.forEach(function(item){<br>
+  copyItems.push(item)<br>
+})<br>
+<br>
+### Second example, modifying the array during iteration:
+<br>
+let words = ['one', 'two', 'three', 'four']<br>
+words.forEach(function(word) {<br>
+  console.log(word)<br>
+  if (word === 'two') {<br>
+    words.shift() //'one' will delete from array<br>
+  }<br>
+}) // one // two // four<br>
+<br>
+console.log(words);  //['two', 'three', 'four']<br>
 
-   Inline Callback Function:
-   forEach(function callbackFunction(element, index, array) { ... })
-   
+<br>
+### Third example, with promises: <br>
+   <br>
+   let ratings = [5, 4, 5]; <br>
+let sum = 0; <br>
+<br>
+let sumFunction = async function (a, b) <br>
+{ <br>
+  return a + b <br>
+} <br>
+<br>
+ratings.forEach(async function(rating) { <br>
+  sum = await sumFunction(sum, rating) <br>
+}) <br>
+<br>
+console.log(sum) <br>
+// Naively expected output: 14 <br>
+// Actual output: 0 <br>
    
 
 ## Sort
+The sort() method sorts the elements of a typed array numerically in place and returns the typed array. This method has the same algorithm as Array.prototype.sort(), except that sorts the values numerically instead of as strings. TypedArray is one of the typed array types here.<br>
+<br>
+The sort() method sorts the elements of an array in place and returns the sorted array. The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.<br>
+
+<br>
+
+### First example, a simple numerical sort:
+const uint8 = new Uint8Array([40, 10, 50, 20, 30]); <br>
+uint8.sort();<br> 
+<br>
+console.log(uint8); <br>
+// expected output: Uint8Array [10, 20, 30, 40, 50] <br>
+<br>
+
+### Second example, alphabetical sort:
+const months = ['March', 'Jan', 'Feb', 'Dec']; <br>
+months.sort(); <br>
+console.log(months); <br>
+// expected output: Array ["Dec", "Feb", "Jan", "March"] <br>
+<br>
+const array1 = [1, 30, 4, 21, 100000]; <br>
+array1.sort(); <br>
+console.log(array1); <br>
+// expected output: Array [1, 100000, 21, 30, 4] <br>
+<br>
+
+### Third example, sorting by value:
+<br>
+var items = [ <br>
+  { name: 'Edward', value: 21 },<br>
+  { name: 'Sharpe', value: 37 },<br>
+  { name: 'And', value: 45 },<br>
+  { name: 'The', value: -12 },<br>
+  { name: 'Magnetic', value: 13 },<br>
+  { name: 'Zeros', value: 37 }<br>
+];<br>
+<br>
+// sort by value<br>
+items.sort(function (a, b) {<br>
+  return a.value - b.value;<br>
+});<br>
+<br>
 
 ## Slice
-slice   
+The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.   
 
-### Syntax:<br>
-#### Arrow Function:<br>
-slice
-<br>
-#### Callback Function:<br>
-slice
-<br>
-#### Inline Callback Function:<br>
-slice
+
 ### First example:<br>
 Write a function to get the first elements of asequence. Passing a parameter n (default=1) will return the first n elements of the sequence. <br>
 <br>
@@ -246,9 +320,16 @@ slice
 
 
 ## Pop
+The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+
+### First example:
+
+### Second example:
+
+### Third example:
 
 ## Push
-Push   
+The push() method adds one or more elements to the end of an array and returns the new length of the array.   
 
 
 ### First example:<br>
@@ -268,20 +349,67 @@ function countBy(x, n) { <br>
 }<br>
 
 ### Second example:<br>
-push
+const animals = ['pigs', 'goats', 'sheep']; <br>
+<br>
+const count = animals.push('cows');<br>
+console.log(count);<br>
+// expected output: 4<br>
+console.log(animals);<br>
+// expected output: Array ["pigs", "goats", "sheep", "cows"]<br>
+<br>
+animals.push('chickens', 'cats', 'dogs');<br>
+console.log(animals);<br>
+// expected output: Array ["pigs", "goats", "sheep", "cows", "chickens", "cats", "dogs"]<br>
+
 
 ### Third example:<br>
-push
-
+let vegetables = ['parsnip', 'potato'] <br>
+let moreVegs = ['celery', 'beetroot'] <br>
+<br>
+// Merge the second array into the first one <br>
+// Equivalent to vegetables.push('celery', 'beetroot') <br>
+Array.prototype.push.apply(vegetables, moreVegs) <br>
+<br>
+console.log(vegetables)  // ['parsnip', 'potato', 'celery', 'beetroot'] <br>
+<br>
 
 
 ## Shift
+The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+### First example:
+
+### Second example:
+
+### Third example:
+
+
+
 
 ## Unshift
+The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+### First example:
+
+### Second example:
+
+### Third example:
+
+
 
 ## Includes
 
+### First example:
+
+### Second example:
+
+### Third example:
+
 ## indexOf
+
+### First example:
+
+### Second example:
+
+### Third example:
 
 ## Every
 The every method is similar to the some method, but instead of checking for at least one item, it checks to make sure every single item falls under the test.
