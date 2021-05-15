@@ -340,11 +340,41 @@ Code language: JavaScript (javascript) <br>
 ## Pop
 The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
 
+
+
+
 ### First example:
+const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];<br>
+<br>
+console.log(plants.pop());<br>
+// expected output: "tomato"<br>
+<br>
+console.log(plants);<br>
+// expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]<br>
+<br>
+plants.pop();<br>
+<br>
+console.log(plants);<br>
+// expected output: Array ["broccoli", "cauliflower", "cabbage"]<br>
 
 ### Second example:
-
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];<br>
+<br>
+var popped = myFish.pop();<br>
+<br>
+console.log(myFish); // ['angel', 'clown', 'mandarin' ]<br>
+<br>
+console.log(popped); // 'sturgeon'<br>
 ### Third example:
+var myFish = {0:'angel', 1:'clown', 2:'mandarin', 3:'sturgeon', length: 4};<br>
+<br>
+var popped = Array.prototype.pop.call(myFish); //same syntax for using apply( )<br>
+<br>
+console.log(myFish); // {0:'angel', 1:'clown', 2:'mandarin', length: 3}<br>
+<br>
+console.log(popped); // 'sturgeon'<br>
+<br>
+
 
 ## Push
 The push() method adds one or more elements to the end of an array and returns the new length of the array.   
@@ -393,34 +423,114 @@ console.log(vegetables)  // ['parsnip', 'potato', 'celery', 'beetroot'] <br>
 
 
 ## Shift
-The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.<br>
+Does this remind you of another array method in this guide?  <br>
+I remember the shift method by remembering that the shift key needs to be pressed BEFORE the second key, therefore the shift method removes the FIRST element.  Kinda clunky but works for me.  Which array method removes and returns the last element in an array?<br>
+hint: pop()<br>
+I remember this one like, pop rocks are desserts, desserts come at the end.
+
 ### First example:
+const array1 = [1, 2, 3];<br>
+<br>
+const firstElement = array1.shift();<br>
+<br>
+console.log(array1);<br>
+// expected output: Array [2, 3]<br>
+<br>
+console.log(firstElement);<br>
+// expected output: 1<br>
+
 
 ### Second example:
+var myFish = ['angel', 'clown', 'mandarin', 'surgeon'];<br>
+<br>
+console.log('myFish before:', JSON.stringify(myFish));<br>
+// myFish before: ['angel', 'clown', 'mandarin', 'surgeon']<br>
+<br>
+var shifted = myFish.shift();<br>
+<br>
+console.log('myFish after:', myFish);<br>
+// myFish after: ['clown', 'mandarin', 'surgeon']<br>
+<br>
+console.log('Removed this element:', shifted);<br>
+// Removed this element: angel<br>
 
-### Third example:
-
-
+### Third example, using shift in a for loop:
+<br>
+var names = ["Andrew", "Edward", "Paul", "Chris" ,"John"];<br>
+<br>
+while( typeof (i = names.shift()) !== 'undefined' ) {<br>
+    console.log(i);<br>
+}<br>
+// Andrew, Edward, Paul, Chris, John<br>
 
 
 ## Unshift
 The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+When more than one element is added at once, they are all added to the beginning together.<br>
 ### First example:
-
+const array1 = [1, 2, 3];<br>
+<br>
+console.log(array1.unshift(4, 5));<br>
+// expected output: 5<br>
+<br>
+console.log(array1);<br>
+// expected output: Array [4, 5, 1, 2, 3]<br>
+<br>
 ### Second example:
+let arr = [4, 5, 6]<br>
+<br>
+arr.unshift(1, 2, 3)<br>
+console.log(arr);<br>
+// [1, 2, 3, 4, 5, 6]<br>
+<br>
+arr = [4, 5, 6] // resetting the array<br>
+<br>
+arr.unshift(1)<br>
+arr.unshift(2)<br>
+arr.unshift(3)<br>
+<br>
+console.log(arr)<br>
+// [3, 2, 1, 4, 5, 6]<br>
 
 ### Third example:
-
-
+var languages = ["JavaScript", "Python", "Java", "Lua"];<br>
+<br>
+var count = languages.unshift("C++");<br>
+console.log(languages); // [ 'C++', 'JavaScript', 'Python', 'Java', 'Lua' ]<br>
+console.log(count); // 5<br>
+<br>
+var priceList = [12, 21, 35];<br>
+<br>
+var count1 = priceList.unshift(44, 10, 1.6);<br>
+console.log(priceList); // [ 44, 10, 1.6, 12, 21, 35 ]<br>
+console.log(count1); // 6<br>
+<br>
 
 ## Includes
+The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.<br>
+Remember: "Does this include this? answer is yes or no"
 
 ### First example:
+const array1 = [1, 2, 3];<br>
+<br>
+console.log(array1.includes(2));<br>
+// expected output: true<br>
+<br>
+const pets = ['cat', 'dog', 'bat'];<br>
+<br>
+console.log(pets.includes('cat'));<br>
+// expected output: true<br>
+<br>
+console.log(pets.includes('at'));<br>
+// expected output: false<br>
 
-### Second example:
-
-### Third example:
-
+### More examples:
+[1, 2, 3].includes(2)      // true
+[1, 2, 3].includes(4)      // false
+[1, 2, 3].includes(3, 3)   // false
+[1, 2, 3].includes(3, -1)  // true
+[1, 2, NaN].includes(NaN)  // true
 
 
 ## indexOf
@@ -454,28 +564,47 @@ console.log(beasts.indexOf('giraffe'));<br>
 // expected output: -1<br>
 // -1 means that substring is not found.<br>
 
-## Every
-The every method is similar to the some method, but instead of checking for at least one item, it checks to make sure every single item falls under the test.
+## Every(fn)
+The every() method is similar to the some() method, but instead of checking for at least one item, it checks to make sure every single item falls under the test.<br>
+
+The function fn is called on each element of the array similar to map. If any/all results are true, returns true, otherwise false.<br>
+
+These methods behave sort of like || and && operators: if fn returns a truthy value, arr.some() immediately returns true and stops iterating over the rest of items; if fn returns a falsy value, arr.every() immediately returns false and stops iterating over the rest of items as well.<br>
+
+Note: Calling this method on an empty array will return true for any condition!<br>
+
 ### First example:<br>
 (assuming there's a price list with a variety of items and their prices, $1-$100) <br>
 const cheapPrice = items.every((item) => { <br>
     return item.price <= 75 <br>
    })  <br>
  // will return false, because some items are more than $75. if we changed this to 750, it would return true. <br>
+
 ### Second example:<br>
-
-
+function arraysEqual(arr1, arr2) {<br>
+  return arr1.length === arr2.length && arr1.every((value, index) => value === arr2[index]);<br>
+}<br>
+<br>
+alert( arraysEqual([1, 2], [1, 2])); // true<br>
+<br>
 
 ### Third example:<br>
-every
+Polyfill! On Javascript MDN, there's a code that can be inserted at the beginning of your script to be sure that every() can be used.<br>
+
+"every was added to the ECMA-262 standard in the 5th edition, and it may not be present in other implementations of the standard. You can work around this by inserting the following code at the beginning of your scripts, allowing use of every in implementations which do not natively support it."
+
+"This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming Object and TypeError have their original values, and that callbackfn.call evaluates to the original value of Function.prototype.call."
+
+MORE INFO HERE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
 
 
 
-
-
-
-
-
+<!-- RESOURCES -->
+## Resources:
+    MDN
+    https://www.javascripttutorial.net/
+    Codewars.com
+    https://javascript.info/array-methods
 
 <!-- LICENSE -->
 ## License
