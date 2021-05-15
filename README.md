@@ -294,6 +294,7 @@ items.sort(function (a, b) {<br>
 ## Slice
 The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.   
 
+Great examples here: https://www.javascripttutorial.net/javascript-array-slice/
 
 ### First example:<br>
 Write a function to get the first elements of asequence. Passing a parameter n (default=1) will return the first n elements of the sequence. <br>
@@ -311,11 +312,28 @@ function first(arr, n=1) { <br>
    return arr.slice(0,n); <br>
 } <br>
 
-### Second example:<br>
-slice
+### Second example, copying a portion of an array::<br>
+The typical use of the slice() method is to copy a portion of an array without modifying the source array. Here is an example:<br>
+<br>
+var colors = ['red','green','blue','yellow','purple']; <br>
+var rgb = colors.slice(0,3); <br>
+console.log(rgb); // ["red", "green", "blue"] <br>
+Code language: JavaScript (javascript) <br>
+The rgb array contains the first three elements of the colors array. The source array colors remains intact.<br>
 
-### Third example:<br>
-slice
+
+
+### Third example, converting an array-like object into an array:<br>
+The slice() method is used to convert an array-like object into an array. For example: <br>
+<br>
+function toArray() { <br>
+  return Array.prototype.slice.call(arguments); <br>
+} <br>
+<br>
+var classification = toArray('A','B','C'); <br>
+<br>
+console.log(classification); // ["A", "B", "C"] <br>
+Code language: JavaScript (javascript) <br>
 
 
 
@@ -403,13 +421,38 @@ The unshift() method adds one or more elements to the beginning of an array and 
 
 ### Third example:
 
+
+
 ## indexOf
+finds the index of a given substring within a string.
 
-### First example:
-
-### Second example:
-
-### Third example:
+### First example, finding the index of a substring within a string:
+let str = 'finding substring in string';<br>
+let index = str.indexOf('str');<br>
+<br>
+console.log(index); // 11<br>
+// note the 11 index finds the first 'str' within the string.<br>
+### Second example, counting occurrence of a substring within a string:
+let str = 'You do not know what you do not know until you know.';<br>
+let substr = 'know';<br>
+<br>
+let count = 0;<br>
+<br>
+let index = str.indexOf(substr);<br>
+while(index !== -1) {<br>
+    count++;<br>
+    index = str.indexOf(substr, index + 1);<br>
+}<br>
+<br>
+console.log(count);<br>
+Code language: JavaScript (javascript)<br>
+How it works:<br>
+### Third example, what if there isn't a substring in the string?<br>
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];<br>
+<br>
+console.log(beasts.indexOf('giraffe'));<br>
+// expected output: -1<br>
+// -1 means that substring is not found.<br>
 
 ## Every
 The every method is similar to the some method, but instead of checking for at least one item, it checks to make sure every single item falls under the test.
